@@ -57,11 +57,11 @@ set title "Don't forget what file your editing
 set paste
 
 " 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
-set softtabstop=0
+set shiftwidth=2 "Tab width is 2 spaces
+set tabstop=2 "Indent also with 4 spaces
+"set softtabstop=0
 
-set expandtab "Use spaces instead of tabs
+set expandtab "Expand tabs to spaces
 set smarttab "Be smart when using tabs
 set smartindent
 "set statusline+=%f

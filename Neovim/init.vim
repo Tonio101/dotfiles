@@ -39,6 +39,7 @@ set wildmenu "Visual autocomplete for command menu
 set showmatch "Highlight matching [{()}]
 set incsearch "Search as characters are entered
 set hlsearch "Highlight matches
+let &colorcolumn="80,".join(range(119,999),",")
 nnoremap <F1> :nohlsearch<CR>
 
 "Ignore file types
@@ -57,13 +58,17 @@ set title "Don't forget what file your editing
 set paste
 
 " 1 tab == 2 spaces
-set tabstop=2 "Tab width is 2 spaces
-set shiftwidth=2 "Indent also with 4 spaces 
-"set softtabstop=0
+set tabstop=2     "Number of visual spaces per TAB
+set softtabstop=2 "Number of spaces in tab when editing
+set shiftwidth=2  "Number of spaces to use for autoindent
+set expandtab     "Insert spaces for tabs
 
-set expandtab "Expand tabs to spaces
-set smarttab "Be smart when using tabs
-set smartindent
+" Perl Files = 4 Space Tabs
+autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab
+"autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=0
+
+"set smarttab "Be smart when using tabs
+"set smartindent
 
 "set statusline+=%f
 set laststatus=2 "Turn on status line

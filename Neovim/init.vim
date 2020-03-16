@@ -7,8 +7,10 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged/')
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'octol/vim-cpp-enhanced-highlight'
 " Initialize plugin system
 call plug#end()
 
@@ -25,6 +27,13 @@ let g:ctrlp_working_path_mode = 'a'
 "    \ 'link': 'some_bad_symbolic_links',
 "    \ }
 
+let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:cpp_posix_standard = 1
+"let g:cpp_no_function_highlight = 1
+"let c_no_curly_error = 1
+
 "*****************************************************************
 " Non-Plugin Stuff After This Line
 "*****************************************************************
@@ -33,13 +42,14 @@ filetype indent on
 set mouse=a "Set mouse
 set clipboard=unnamed "Allow to copy/paste from clipboard
 syntax on "Syntax color
-colors dracula " ~/.config/nvim/colors/dracula.vim
+colorscheme dracula
+"colors dracula " ~/.config/nvim/colors/dracula.vim
 
 set wildmenu "Visual autocomplete for command menu
 set showmatch "Highlight matching [{()}]
 set incsearch "Search as characters are entered
 set hlsearch "Highlight matches
-let &colorcolumn="80,".join(range(119,999),",")
+"let &colorcolumn="80,".join(range(119,999),",")
 nnoremap <F1> :nohlsearch<CR>
 
 "Ignore file types

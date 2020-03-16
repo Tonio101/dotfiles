@@ -1,0 +1,34 @@
+286,292c286,292
+< hi! link Statement DraculaCyan
+< hi! link Conditional DraculaCyan
+< hi! link Repeat DraculaCyan
+< hi! link Label DraculaCyan
+< hi! link Operator DraculaCyan
+< hi! link Keyword DraculaCyan
+< hi! link Exception DraculaCyan
+---
+> hi! link Statement DraculaPink
+> hi! link Conditional DraculaPink
+> hi! link Repeat DraculaPink
+> hi! link Label DraculaPink
+> hi! link Operator DraculaPink
+> hi! link Keyword DraculaPink
+> hi! link Exception DraculaPink
+294c294
+< hi! link PreProc DraculaCyan
+---
+> hi! link PreProc DraculaPink
+296,301c296,301
+< hi! link Define DraculaCyan
+< hi! link Macro DraculaCyan
+< hi! link PreCondit DraculaCyan
+< hi! link StorageClass DraculaCyan
+< hi! link Structure DraculaCyan
+< hi! link Typedef DraculaCyan
+---
+> hi! link Define DraculaPink
+> hi! link Macro DraculaPink
+> hi! link PreCondit DraculaPink
+> hi! link StorageClass DraculaPink
+> hi! link Structure DraculaPink
+> hi! link Typedef DraculaPink

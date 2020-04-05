@@ -1,1 +1,2 @@
-After installing the plugins, apply the patch to ~/.config/nvim/plugged/dracula/colors/dracula.vim
+To modify the dracula colors:
+$HOME/.config/nvim/plugged/dracula/colors/dracula.vim

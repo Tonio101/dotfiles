@@ -74,6 +74,7 @@ set wildmenu            " Visual autocomplete for command menu
 set showmatch           " Highlight matching [{()}]
 set incsearch           " Search as characters are entered
 set hlsearch            " Highlight matches
+set inccommand=nosplit  " Interactive substitute command (a must have!)
 
 set ignorecase          " Always case-insensitive
 set smartcase           " ignore case if search pattern is lower case

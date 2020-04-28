@@ -134,6 +134,6 @@ nnoremap <F1> :nohlsearch<CR>
 " Toggle between mouse mode ON and OFF
 map <F2> :exec &mouse!=""? "set mouse=" : "set mouse=a"<CR>
 " Toggle between spell check
-nnoremap <F6> :setlocal spell spelllang=en_us<CR>
-nnoremap <F7> :set nospell<CR>
+nnoremap <F7> :setlocal spell spelllang=en_us<CR>
+nnoremap <F8> :set nospell<CR>
 

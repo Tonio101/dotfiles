@@ -123,17 +123,27 @@ set statusline+=\ %P    " percent through file
 "******************************************************************************
 " Delete key
 "******************************************************************************
-"set backspace=2        " make backspace work like most other programs
+"set backspace=2              " make backspace work like most other programs
 "set backspace=indent,eol,start
-"set path=.,/usr/include,,** "Cant delete in vim?
+"set path=.,/usr/include,,**  "Cant delete in vim?
 
 "******************************************************************************
 " Key mappings
 "******************************************************************************
-nnoremap <F1> :nohlsearch<CR>
-" Toggle between mouse mode ON and OFF
-map <F2> :exec &mouse!=""? "set mouse=" : "set mouse=a"<CR>
-" Toggle between spell check
-nnoremap <F7> :setlocal spell spelllang=en_us<CR>
-nnoremap <F8> :set nospell<CR>
+" Toggle highlighted searched text
+nnoremap <space> :nohlsearch<CR>
 
+" Toggle between mouse mode ON and OFF
+map m :exec &mouse!=""? "set mouse=" : "set mouse=a"<CR>
+
+" Toggle spell check
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+
+nnoremap <silent> s :call ToggleSpellCheck()<CR>

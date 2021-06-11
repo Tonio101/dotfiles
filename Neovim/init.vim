@@ -154,3 +154,20 @@ function! ToggleSpellCheck()
 endfunction
 
 nnoremap <silent> s :call ToggleSpellCheck()<CR>
+
+"******************************************************************************
+" Automatic toggling between line number modes
+"******************************************************************************
+set number relativenumber
+
+"augroup numbertoggle
+"  autocmd!
+"  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+"augroup END
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END

@@ -11,15 +11,40 @@ call plug#begin('~/.config/nvim/plugged/')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-clang'
+"Plug 'zchee/deoplete-clang'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-surround'
+"Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
 
 " Initialize plugin system
 call plug#end()
 
 " Ignore file types
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o " MacOSX/Linux
+
+"******************************************************************************
+" ALE Completion
+"******************************************************************************
+let g:ale_completion_autoimport = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   ' [%dW] [%dE] ',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+"set statusline=%{LinterStatus()}
 
 "******************************************************************************
 " ctrlpvim
@@ -121,6 +146,7 @@ set statusline+=%=              " left/right separator
 set statusline+=[%6l]:          " cursor line w/ padding (less distractive)
 set statusline+=[%3c]           " cursor column w/ padding (less distractive)
 set statusline+=\ %P            " percent through file
+set statusline+=%{LinterStatus()}
 
 "******************************************************************************
 " Delete key

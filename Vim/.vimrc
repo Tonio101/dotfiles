@@ -9,6 +9,7 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dracula/vim',{'as':'dracula'}
 " Initialize plugin system
 call plug#end()
 
@@ -33,7 +34,7 @@ filetype indent on
 set mouse=a "Set mouse
 set clipboard=unnamed "Allow to copy/paste from clipboard
 syntax on "Syntax color
-colors dracula "~/.vim/colors/dracula.vim
+"colors dracula "~/.vim/colors/dracula.vim
 
 set wildmenu "Visual autocomplete for command menu
 set showmatch "Highlight matching [{()}]

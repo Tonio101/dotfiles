@@ -30,6 +30,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o " MacOSX/Linux
 let g:ale_completion_autoimport = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+let g:ale_virtualtext_cursor = 0
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -197,3 +198,7 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
+
+" Flagging Unnecessary Whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+

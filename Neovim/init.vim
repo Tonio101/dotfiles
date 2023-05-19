@@ -202,3 +202,8 @@ augroup END
 " Flagging Unnecessary Whitespace
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+"******************************************************************************
+" Eenable folds
+"******************************************************************************
+set foldenable
+set foldmethod=marker

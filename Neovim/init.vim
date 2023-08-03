@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged/')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dracula/vim',{'as':'dracula'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-clang'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-surround'
@@ -18,11 +18,32 @@ Plug 'tpope/vim-surround'
 "Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Initialize plugin system
 call plug#end()
 
 " Ignore file types
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o " MacOSX/Linux
+
+"******************************************************************************
+" coc.nvim
+"******************************************************************************
+" Use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+"inoremap <silent><expr> <TAB>
+"      \ coc#pum#visible() ? coc#pum#next(1) :
+"      \ CheckBackspace() ? "\<Tab>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 "******************************************************************************
 " ALE Completion
@@ -72,10 +93,10 @@ let g:ctrlp_working_path_mode = 'a'
 "******************************************************************************
 " deoplete
 "******************************************************************************
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header  = '/usr/include/clang'
-let g:deoplete#sources#clang#std#cpp       = 'c++11'
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so.1'
+"let g:deoplete#sources#clang#clang_header  = '/usr/include/clang'
+"let g:deoplete#sources#clang#std#cpp       = 'c++11'
 
 "******************************************************************************
 " vim-cpp-enhanced-highlight
